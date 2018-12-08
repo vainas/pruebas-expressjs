@@ -6,12 +6,17 @@ router.get('/', function (req, res) {
   res.json({success: true});
 });
 
+router.get('/plantilla', function (req, res) {
+  res.render('plantilla.jade', { title : 'Vainas' });
+});
+
 app.use(function (req, res, next) {
   console.log('Time:', Date.now());
   next();
 });
 
 app.set('views', './views');
+app.set('view engine', 'jade');
 
 app.use('/',router);
 
